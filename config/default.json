@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://anasse123:anasse123@cluster0.tiugp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://anasse123:anasse123@cluster0.tiugp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret":"my_token_titi"
 }

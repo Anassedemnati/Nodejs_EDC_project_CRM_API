@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const jwt = require("jsonwebtoken");
+const config = require("config")
 
 const User = require('../../models/User');
 //creation du route
@@ -64,27 +66,45 @@ router.post('/', [
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt)
             await user.save();
+            
+            //return jsonwebtoken
+            const payload = {
+                user: {
+                    id: user.id
+                }
+            };
+            jwt.sign(
+                payload,
+                config.get('jwtSecret'),
+                {expiresIn: 360000},
+                (err, token)=> {
+                    if(err) throw err;
+                    res.json({ token });
+                    
+                    }
+                );
+
+            
 
 
 
             //return jsonwebtoken
-            res.send('User registred')
+           
 
         } catch (err) {
             console.error(err.message);
-            res.status(500).send('Server error!')
+            return res.status(500).send('Server error!')
 
         }
 
         //see if user exist and phone ,email,matricule
-        //encrypt password
-        //return jsonwebtoken
+        
 
-        res.send('User route')
 
+    
 
     });
-router.get('/', (req, res) => res.send('Users route'))
+
 // router.get('/add', (req, res) => res.send('User add'))
 
 
