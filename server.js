@@ -1,7 +1,10 @@
 const express = require('express');//import express
+const connectDB = require('./config/db')
 
 //initialisation du app variable
 const app = express();
+//Connect Database
+connectDB();
 
 //single end point
 app.get('/', (req, res) => res.send('API Runing'));
