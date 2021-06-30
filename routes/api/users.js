@@ -84,13 +84,8 @@ router.post('/', [
                     }
                 );
 
-            
-
-
-
             //return jsonwebtoken
            
-
         } catch (err) {
             console.error(err.message);
             return res.status(500).send('Server error!')
