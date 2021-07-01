@@ -13,7 +13,7 @@ const OrganizationsSchema = new mongoose.Schema({
     },
     adresse: {
         type: String,
-        required: true
+        
     },
 
     tele: {
@@ -23,7 +23,7 @@ const OrganizationsSchema = new mongoose.Schema({
     },
     contact_name: {
         type: String,
-        required: true,
+        
     },
     contact_email: {
         type: String,
@@ -37,4 +37,4 @@ const OrganizationsSchema = new mongoose.Schema({
     
 })
 
-module.exports = Organization = mongoose.model('organization', Organizations);
+module.exports = Organization = mongoose.model('organization', OrganizationsSchema);

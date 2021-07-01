@@ -29,7 +29,7 @@ router.get('/one', auth, async (req, res) => {
 
 //creation du route
 //@route    POST api/projects/
-//@desc     create or update user profile 
+//@desc     create or update Project 
 //@access   Private
 router.post('/',[  auth,[
     body('code','code is required').not().isEmpty(),
@@ -64,7 +64,7 @@ router.post('/',[  auth,[
             project = await Project.findOneAndUpdate({  user: req.user.id },{$set: projectFields },{new: true});
             return res.json(project);
         }
-        //Create 
+        
         project = new Project(projectFields);
         await project.save();
         res.json(project)

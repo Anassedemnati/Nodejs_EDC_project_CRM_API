@@ -12,7 +12,7 @@ const TasksSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        
     },
     user: {
         type: mongoose.Schema.Types.ObjectID,
@@ -20,7 +20,7 @@ const TasksSchema = new mongoose.Schema({
     },
     ended: {
         type: Boolean,
-        required: true
+        
     },
     deleverable: {
         type: mongoose.Schema.Types.ObjectID,
